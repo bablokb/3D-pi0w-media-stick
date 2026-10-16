@@ -69,8 +69,8 @@ module pi0w_pcb(hull=false) {
 
 module bottom_cutouts() {
   // HDMI (bottom side)
-  move([XO_USB,-Y_PCB_PI0W/2-W_BASE, BT])
-    cuboid([D_HDMI_CABLE, 4*W_BASE, H_PCB_PI0W_SCREW+FUZZ], anchor=BOTTOM+CENTER);
+  move([XO_USB-D_HDMI_CABLE,-Y_PCB_PI0W/2-W_BASE, BT])
+    cuboid([2*D_HDMI_CABLE, 4*W_BASE, H_PCB_PI0W_SCREW+FUZZ], anchor=BOTTOM+CENTER);
   // HDMI (left side)
   move([-X_PCB_PI0W/2-W_BASE, 0, BT])
     cuboid([4*W_BASE, D_HDMI_CABLE, H_PCB_PI0W_SCREW+FUZZ], anchor=BOTTOM+CENTER);
@@ -79,10 +79,6 @@ module bottom_cutouts() {
 // --- cable ducts   --------------------------------------------------------
 
 module cable_ducts() {
-  move([XO_USB,-Y_PCB_PI0W/2, BT-FUZZ]) {
-      xflip_copy() xmove(D_HDMI_CABLE/2)
-        cuboid([W_BASE, Y_PCB_PI0W/3, H_PCB_PI0W_SCREW], anchor=BOTTOM+LEFT+FRONT);
-  }
   move([-X_PCB_PI0W/2-GAP, 0, BT-FUZZ]) {
       yflip_copy() ymove(D_HDMI_CABLE/2)
         cuboid([X_PCB_PI0W/2, W_BASE, H_PCB_PI0W_SCREW], anchor=BOTTOM+LEFT+FRONT);
