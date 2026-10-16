@@ -98,7 +98,7 @@ module hdmi_plug_left() {
   y_plug = Y_HDMI+2*W_BASE;
   // base + plug
   move([-X_PCB_PI0W/2-W_BASE-x_conn/2-x_plug/2, 0, 0]) {
-    cuboid([x_conn+x_plug, y_plug, BT], anchor=BOTTOM+CENTER);
+    cuboid([x_conn+x_plug, y_plug+2*W_BASE, BT], anchor=BOTTOM+CENTER);
     yflip_copy() ymove(y_plug/2-W_BASE/2)
         cuboid([x_conn+x_plug, W_BASE, H_BASE], anchor=BOTTOM+CENTER);
   }
