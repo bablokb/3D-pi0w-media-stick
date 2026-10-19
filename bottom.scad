@@ -61,7 +61,7 @@ module pi0w_pcb(hull=false) {
   zm = hull ? -FUZZ : 0;
   //move([XI_BASE/2-X_PCB_PI0W/2,YI_BASE/2-Y_PCB_PI0W/2,zm])
   zmove(zm)
-       pcb(X_PCB_PI0W, Y_PCB_PI0W, z, h_screw=H_BASE,
+       pcb(X_PCB_PI0W, Y_PCB_PI0W, z, h_screw=H_BASE, o_screw=3.5,
        edges="Z", screws=!hull);
 }
 
