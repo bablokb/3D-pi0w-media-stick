@@ -7,6 +7,7 @@
 // https://github.com/bablokb/3D-pi0w-media-stick
 //---------------------------------------------------------------------------
 
+include <BOSL2/std.scad>
 include <modules/dimensions.scad>
 
 Z_PCB = 1.6;  // all PCBs
@@ -40,3 +41,27 @@ YO_BASE = YI_BASE + 4*W_BASE + 2*GAP;
 XO_USB  = -X_PCB_PI0W/2 + 54;
 X_USB   = 10;
 
+// --- helper for mini-HDMI plug and cable   -----------------------------------
+
+module _mini_hdmi_cover(size=[0,0,0]) {
+  color("blue") xmove(-size.x/2+FUZZ)
+    cuboid([size.x, size.y, size.z], anchor=BOTTOM+CENTER+BACK);
+  pie_slice(d=2*size.y, h=size.z, ang=90, spin=-90, anchor=BOTTOM+CENTER);
+}
+
+module mini_hdmi_cover(isize=[0,0,0], wall=W2, h=0) {
+  difference() {
+    _mini_hdmi_cover(size=[isize.x+wall, isize.y+wall, isize.z+h]);
+    ymove(FUZZ) zmove(isize.z) _mini_hdmi_cover(size=[isize.x+FUZZ, isize.y, h+FUZZ]);
+  }
+}
+
+
+// bottom
+//mini_hdmi_cover(isize=[X_HDMI_MINI, Y_HDMI_MINI, BT], wall=W_BASE, h=10);
+//mini_hdmi_cover(isize=[X_HDMI_MINI+2*W_BASE, Y_HDMI_MINI+2*W_BASE, BT], wall=0, h=0);
+
+// top
+////zmove(2*10+2*BT) xrot(180)
+//yflip()
+//  mini_hdmi_cover(isize=[X_HDMI_MINI+W_BASE, Y_HDMI_MINI+W_BASE, BT], wall=W_BASE, h=10);
