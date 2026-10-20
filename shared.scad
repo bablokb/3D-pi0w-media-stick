@@ -14,7 +14,7 @@ Z_PCB = 1.6;  // all PCBs
 
 D_HDMI_CABLE = 4;
 X_HDMI_MINI  = 26.5;
-Y_HDMI_MINI  = 22.0;
+Y_HDMI_MINI  = 22.5;
 X_HDMI       = 20.0 + GAP;
 Y_HDMI       = 18.2 + GAP;
 Y_HDMI_PLUG  = 14;
