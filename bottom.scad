@@ -81,6 +81,19 @@ module hdmi_plug_left() {
   }
 }
 
+// --- front (mini) HDMI plug   ---------------------------------------------
+
+module hdmi_plug_front() {
+  move([-W_BASE, -YI_BASE/2+FUZZ, 0]) {
+    // bottom plate (no wall)
+    mini_hdmi_cover(isize=[X_HDMI_MINI+2*W_BASE, Y_HDMI_MINI+2*W_BASE, BT],
+                    wall=0, h=0);
+    // wall of given width and height
+    mini_hdmi_cover(isize=[X_HDMI_MINI, Y_HDMI_MINI, BT],
+                    wall=W_BASE, h=H_BASE-BT);
+  }
+}
+
 // --- final object   -------------------------------------------------------
 
 module bottom() {
@@ -95,7 +108,9 @@ module bottom() {
   // add cable ducts
   cable_ducts();
   // add (left) HDMI-plug
-   color("green") hdmi_plug_left();
+  color("green") hdmi_plug_left();
+  // add (front) mini-HDMI-plug cover
+  color("green") hdmi_plug_front();
 }
 
 bottom();
