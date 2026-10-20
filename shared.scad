@@ -45,7 +45,8 @@ X_USB   = 10;
 
 module _mini_hdmi_cover(size=[0,0,0]) {
   color("blue") xmove(-size.x/2+FUZZ)
-    cuboid([size.x, size.y, size.z], anchor=BOTTOM+CENTER+BACK);
+    cuboid([size.x, size.y, size.z],
+           rounding=3, edges=FRONT+LEFT, anchor=BOTTOM+CENTER+BACK);
   pie_slice(d=2*size.y, h=size.z, ang=90, spin=-90, anchor=BOTTOM+CENTER);
 }
 
