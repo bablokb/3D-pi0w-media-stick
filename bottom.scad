@@ -84,7 +84,7 @@ module hdmi_plug_left() {
 // --- front (mini) HDMI plug   ---------------------------------------------
 
 module hdmi_plug_front() {
-  move([-W_BASE, -YI_BASE/2+FUZZ, 0]) {
+  move([-1.5*W_BASE, -YI_BASE/2+FUZZ, 0]) {
     // bottom plate (no wall)
     mini_hdmi_cover(isize=[X_HDMI_MINI+2*W_BASE, Y_HDMI_MINI+2*W_BASE, BT],
                     wall=0, h=0);
