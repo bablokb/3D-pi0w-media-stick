@@ -15,6 +15,7 @@ Z_PCB = 1.6;  // all PCBs
 D_HDMI_CABLE = 4;
 X_HDMI_MINI  = 26.5;
 Y_HDMI_MINI  = 22.5;
+XO_HDMI_MINI = 12.4 + GAP;
 X_HDMI       = 20.0 + GAP;
 Y_HDMI       = 18.2 + GAP;
 Y_HDMI_PLUG  = 14;
@@ -24,6 +25,12 @@ Y_HDMI_CONN  = 6.6 + GAP;
 X_PCB_PI0W = 65 + 2*GAP;
 Y_PCB_PI0W = 30 + 2*GAP;
 H_PCB_PI0W_SCREW = D_HDMI_CABLE+1;   // hight screw-pocket above BT (base-thickness)
+
+XO_USB  = -X_PCB_PI0W/2 + 54;
+X_USB   = 10;
+
+Y_SD  = 13;
+YO_SD = 1.9;
 
 // base:
 //  - inner dimensions fit PCBs
@@ -38,8 +45,9 @@ XO_BASE = XI_BASE + 4*W_BASE + 2*GAP;
 YI_BASE = Y_PCB_PI0W;
 YO_BASE = YI_BASE + 4*W_BASE + 2*GAP;
 
-XO_USB  = -X_PCB_PI0W/2 + 54;
-X_USB   = 10;
+// top:
+H_TOP = 12.5 + BT;
+
 
 // --- helper for mini-HDMI plug and cable   -----------------------------------
 
