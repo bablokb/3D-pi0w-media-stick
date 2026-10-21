@@ -18,6 +18,7 @@ Y_HDMI_MINI  = 22.5;
 XO_HDMI_MINI = 12.4 + GAP;
 X_HDMI       = 20.0 + GAP;
 Y_HDMI       = 18.2 + GAP;
+Z_HDMI       = 7.8;
 Y_HDMI_PLUG  = 14;
 X_HDMI_CONN  = 5;
 Y_HDMI_CONN  = 6.6 + GAP;
@@ -28,6 +29,7 @@ H_PCB_PI0W_SCREW = D_HDMI_CABLE+1;   // hight screw-pocket above BT (base-thickn
 
 XO_USB  = -X_PCB_PI0W/2 + 54;
 X_USB   = 10;
+Z_USB   =  5;
 
 Y_SD  = 13;
 YO_SD = 1.9;
