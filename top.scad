@@ -27,12 +27,15 @@ module plate() {
 // --- cutouts for USB and HDMI   ---------------------------------------------
 
 module top_cutouts() {
-  // HDMI (back side)
-  move([-X_PCB_PI0W/2+XO_HDMI_MINI,YO_BASE/2+W_BASE/2, BT])
-    cuboid([X_HDMI_MINI, 4*W_BASE, H_TOP+FUZZ], anchor=BOTTOM+CENTER);
-  // USB-power (back side)
-  move([XO_USB,+Y_PCB_PI0W/2+W_BASE/2, BT])
-    cuboid([X_USB, 4*W_BASE, H_TOP+FUZZ], anchor=BOTTOM+CENTER);
+  // inner part of HDMI-plug (overlapping outer wall of plate)
+  move([-4*W_BASE,YO_BASE/2-2*W_BASE, BT])
+    cuboid([X_HDMI_MINI+Y_HDMI_MINI+6*W_BASE, 2*W_BASE, H_TOP+FUZZ], anchor=BOTTOM+CENTER);
+  // outer wall of plate (top side)
+  move([-4*W_BASE,YO_BASE/2-1*W_BASE+FUZZ, BT])
+    cuboid([X_HDMI_MINI+Y_HDMI_MINI+2*W_BASE, 2*W_BASE, H_TOP+FUZZ], anchor=BOTTOM+CENTER);
+  // USB (power)
+  move([XO_USB,+Y_PCB_PI0W/2-2*W_BASE, BT])
+    cuboid([X_USB, 20, Z_USB+Z_PCB+FUZZ], anchor=BOTTOM+CENTER+FRONT);
   // SD-card (left side)
   move([-X_PCB_PI0W/2-W_BASE, -YO_SD, BT])
     cuboid([4*W_BASE, Y_SD, H_TOP+FUZZ], anchor=BOTTOM+CENTER);
@@ -48,15 +51,9 @@ module hdmi_plug_left() {
   y_plug = Y_HDMI+2*W_BASE;
   // base + plug
   move([-X_PCB_PI0W/2-W_BASE-x_conn/2-x_plug/2, 0, 0]) {
-    cuboid([x_conn+x_plug, y_plug+2*W_BASE, BT], anchor=BOTTOM+CENTER);
+    cuboid([x_conn+x_plug, y_plug+2*W_BASE, BT+H_TOP-Z_HDMI-GAP], anchor=BOTTOM+CENTER);
     yflip_copy() ymove(y_plug/2+W_BASE/2)
         cuboid([x_conn+x_plug, W_BASE, H_TOP], anchor=BOTTOM+CENTER);
-  }
-  // plug stop
-  y_plug_stop = (Y_HDMI-Y_HDMI_PLUG)/2;
-  move([-X_PCB_PI0W/2-W_BASE/2-x_conn-x_plug, 0, 0]) {
-    yflip_copy() ymove(y_plug/2-y_plug_stop/2)
-      cuboid([W2, y_plug_stop, H_TOP], anchor=BOTTOM+CENTER);
   }
 }
 
@@ -69,7 +66,7 @@ module hdmi_plug_back() {
                     wall=0, h=0);
     // wall of given width and height
    mini_hdmi_cover(isize=[X_HDMI_MINI+W_BASE, Y_HDMI_MINI+W_BASE, BT],
-                    wall=W_BASE, h=H_TOP);
+                    wall=W_BASE, h=H_TOP-BT);
   }
 }
 
@@ -78,13 +75,15 @@ module hdmi_plug_back() {
 module top() {
   // plate minus all PCBs
   difference() {
-    plate();
+    union() {
+      plate();
+      // add (front) mini-HDMI-plug cover
+      color("green") hdmi_plug_back();
+    }
     top_cutouts();
   }
   // add (left) HDMI-plug
   color("green") hdmi_plug_left();
-  // add (front) mini-HDMI-plug cover
-  color("green") hdmi_plug_back();
 }
 
 top();
