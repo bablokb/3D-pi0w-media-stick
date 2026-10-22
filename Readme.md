@@ -1,8 +1,10 @@
 Case for a Pi0-(2)-W based Mediastick
 =====================================
 
-In this repo you will find the OpenSCAD design files for a
-Pi-Zero W/2W based mediastick.
+This repo holds the  OpenSCAD design files for a
+Pi-Zero W/2W based mediastick:
+
+![](pi0w-media-stick.jpg)
 
 
 Hardware
