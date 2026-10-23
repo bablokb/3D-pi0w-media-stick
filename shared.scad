@@ -35,9 +35,6 @@ XO_USB  = -X_PCB_PI0W/2 + 54;
 X_USB   = 10;
 Z_USB   =  5;
 
-Y_SD  = 13;
-YO_SD = 1.9;
-
 // base:
 //  - inner dimensions fit PCBs
 //  - added wall (W2)
