@@ -40,7 +40,7 @@ module top_cutouts() {
   move([-X_PCB_PI0W/2-W_BASE, -YO_SD, BT])
     cuboid([4*W_BASE, Y_SD, H_TOP+FUZZ], anchor=BOTTOM+CENTER);
   // GPIOs (bottom side)
-  move([0, -Y_PCB_PI0W/2-GAP+YO_GPIOS, -FUZZ])
+  move([0, -Y_PCB_PI0W/2+GAP+YO_GPIOS, -FUZZ])
     cuboid([X_GPIOS, Y_GPIOS, BT+2*FUZZ], anchor=BOTTOM+CENTER);
 }
 

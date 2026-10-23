@@ -27,8 +27,8 @@ X_PCB_PI0W = 65 + 2*GAP;
 Y_PCB_PI0W = 30 + 2*GAP;
 H_PCB_PI0W_SCREW = D_HDMI_CABLE+1;   // hight screw-pocket above BT (base-thickness)
 
-X_GPIOS  = 51 + 2*GAP;
-Y_GPIOS  =  5 + 2*GAP;
+X_GPIOS  = 54 + 2*GAP;
+Y_GPIOS  =  7 + 2*GAP;
 YO_GPIOS = 3.5;
 
 XO_USB  = -X_PCB_PI0W/2 + 54;
