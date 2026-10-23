@@ -83,7 +83,7 @@ module locks() {
   }
   // left HDMI plug
   move([-XO_BASE/2-3*(X_HDMI_CONN+X_HDMI)/4, 0, H_TOP - H_BASE/2]) {
-    ymove(-Y_HDMI/2+W_BASE)              xcyl(l=L_LOCK, d=D_LOCK);
+    ymove(-Y_HDMI/2-W_BASE)              xcyl(l=L_LOCK, d=D_LOCK);
     ymove(+Y_HDMI/2+W_BASE)              xcyl(l=L_LOCK, d=D_LOCK);
   }
   // right side
