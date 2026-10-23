@@ -48,6 +48,9 @@ XO_BASE = XI_BASE + 4*W_BASE + 2*GAP;
 YI_BASE = Y_PCB_PI0W;
 YO_BASE = YI_BASE + 4*W_BASE + 2*GAP;
 
+L_LOCK = 3;
+D_LOCK = W2;
+
 // top:
 H_TOP = 12.5 + BT;
 
