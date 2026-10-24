@@ -34,7 +34,7 @@ module top_cutouts() {
   move([-4*W_BASE,YO_BASE/2-1*W_BASE+FUZZ, BT])
     cuboid([X_HDMI_MINI+Y_HDMI_MINI+2*W_BASE, 2*W_BASE, H_TOP+FUZZ], anchor=BOTTOM+CENTER);
   // USB (power)
-  move([XO_USB,+Y_PCB_PI0W/2-2*W_BASE, BT])
+  move([XO_USB,+Y_PCB_PI0W/2-2*W_BASE, BT+Z_PCB])
     cuboid([X_USB, 20, Z_USB+Z_PCB+FUZZ], anchor=BOTTOM+CENTER+FRONT);
   // SD-card (left side)
   move([-X_PCB_PI0W/2-W_BASE, 0, BT])

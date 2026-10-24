@@ -32,8 +32,8 @@ Y_GPIOS  =  7 + 2*GAP;
 YO_GPIOS = 3.5;
 
 XO_USB  = -X_PCB_PI0W/2 + 54;
-X_USB   = 10;
-Z_USB   =  5;
+X_USB   = 8 + 6;
+Z_USB   = 3 + 2;
 
 // base:
 //  - inner dimensions fit PCBs
