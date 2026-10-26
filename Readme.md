@@ -15,7 +15,7 @@ Required hardware:
 
   - a Pi-Zero W/2W
   - a short, angled Mini-HDMI to HDMI cable
-    (https://www.amazon.de/dp/B08Q3K28ZK)
+    (e.g. https://www.amazon.de/dp/B08Q3K28ZK)
 
 
 The target use-case of the stick is to plug it into a TV and to also
@@ -35,6 +35,26 @@ or update the submodules after a normal clone:
     git submodule update --init --recursive
 
 You also need the BOSL2-library from <https://github.com/BelfrySCAD/BOSL2>.
+
+
+Printing Hints
+--------------
+
+Generic dimensions are in `modules/dimensions.scad` (pulled in by the submodule).
+Project dimensions are in `shared.scad` and must be adapted to the specific
+HDMI-cable in use.
+
+The design is optimized for printing with a layer height of 0.2mm. Both parts
+need supports turned on: the bottom part for the screw-sockets, the top part
+for the USB-power cutout.
+
+If your slicer supports xy-hole compensation, you might dial it in for
+the screws of the bottom part. The Pi needs M2.5 screws and the
+diameter of the holes should be enough, but this depends on the
+filament (even on the filament color) and on the specific screws you
+are using.
+
+
 
 
 License
