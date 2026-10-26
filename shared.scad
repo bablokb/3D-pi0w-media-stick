@@ -53,7 +53,7 @@ D_LOCK = W2;
 
 // top:
 H_TOP = 12.5 + BT;
-
+LOGO_SIZE  = [8, 0.2, 3];  // size of Tesserae logo: xy, z, r
 
 // --- helper for mini-HDMI plug and cable   -----------------------------------
 

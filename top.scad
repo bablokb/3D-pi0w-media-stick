@@ -90,6 +90,17 @@ module locks() {
   move([+XO_BASE/2-W_BASE, 0, H_TOP - H_BASE/2]) ycyl(l=L_LOCK, d=D_LOCK);
 }
 
+// --- logo   ---------------------------------------------------------------
+
+module logo(size=LOGO_SIZE, r=2) {
+  xy = LOGO_SIZE[0];
+  z  = LOGO_SIZE[1];
+  r  = LOGO_SIZE[2];
+  rot_copies(n=2, sa=180)
+    cuboid(size=[xy, xy, z],
+           rounding=r, edges=FRONT+LEFT, anchor=BOTTOM+BACK+RIGHT);
+}
+
 // --- final object   -------------------------------------------------------
 
 module top() {
@@ -101,6 +112,7 @@ module top() {
       color("green") hdmi_plug_back();
     }
     top_cutouts();
+    move([0, YO_BASE/2, -FUZZ]) zrot(90) logo();  // logo cutout
   }
   // add (left) HDMI-plug
   color("green") hdmi_plug_left();
@@ -109,4 +121,3 @@ module top() {
 }
 
 top();
-
