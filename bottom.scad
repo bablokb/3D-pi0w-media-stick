@@ -94,6 +94,23 @@ module hdmi_plug_front() {
   }
 }
 
+// --- locks-mask   ---------------------------------------------------------
+
+module locks_mask() {
+  // front and back
+  move([-X_HDMI_MINI/2, 0, BT+H_BASE/2]) {
+    ymove(+YO_BASE/2-W_BASE)             xcyl(l=L_LOCK, d=D_LOCK);
+    ymove(-YO_BASE/2-Y_HDMI_MINI+W_BASE) xcyl(l=L_LOCK, d=D_LOCK);
+  }
+  // left HDMI plug
+  move([-XO_BASE/2-3*(X_HDMI_CONN+X_HDMI)/4, 0, BT+H_BASE/2]) {
+    ymove(-Y_HDMI/2-W_BASE)              xcyl(l=L_LOCK, d=D_LOCK);
+    ymove(+Y_HDMI/2+W_BASE)              xcyl(l=L_LOCK, d=D_LOCK);
+  }
+  // right side
+  move([+XO_BASE/2-W_BASE, 0, BT+H_BASE/2]) ycyl(l=L_LOCK, d=D_LOCK);
+}
+
 // --- final object   -------------------------------------------------------
 
 module bottom() {
@@ -113,5 +130,7 @@ module bottom() {
   color("green") hdmi_plug_front();
 }
 
-bottom();
-
+difference() {
+  bottom();
+  locks_mask();
+}
